@@ -9,9 +9,9 @@ var sum_tests_uint32 = []struct {
 	n2       uint32
 	expected uint32
 }{
-	{-1, 2, 3},
+	{1, 2, 3},
 	{4, 5, 9},
-	{120, 1, 119},
+	{120, 1, 121},
 }
 
 func TestSumuUint32(t *testing.T) {
@@ -49,7 +49,7 @@ var sum_tests_int64 = []struct {
 }{
 	{1, 2, 3},
 	{4, 5, 9},
-	{127, 1, 128},
+	{122, 6, 128},
 }
 
 func TestSumInt64(t *testing.T) {
@@ -68,13 +68,13 @@ var sum_tests_float64 = []struct {
 }{
 	{1, 2, 3},
 	{4, 5, 9},
-	{127, 1, 128},
+	{127.01, 1, 128},
 }
 
 func TestSumFloat64(t *testing.T) {
 	for _, v := range sum_tests_float64 {
 		if val := SumFloat64(v.n1, v.n2); val != v.expected {
-			t.Errorf("Sum(%b, %b) returned %b, expected %b", v.n1, v.n2, val, v.expected)
+			t.Errorf("Sum(%f, %f) returned %f, expected %f", v.n1, v.n2, val, v.expected)
 		}
 	}
 }
