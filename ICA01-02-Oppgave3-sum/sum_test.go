@@ -3,7 +3,7 @@ package sum
 import "testing"
 
 // Check https://golang.org/ref/spec#Numeric_types and stress the limits!
-//uint32
+//Type uint32
 var sum_tests_uint32 = []struct {
 	n1       uint32
 	n2       uint32
@@ -22,7 +22,7 @@ func TestSumuUint32(t *testing.T) {
 	}
 }
 
-//int32
+//Type int32
 var sum_tests_int32 = []struct {
 	n1       int32
 	n2       int32
@@ -41,7 +41,7 @@ func TestSumInt32(t *testing.T) {
 	}
 }
 
-//int64
+//Type int64
 var sum_tests_int64 = []struct {
 	n1       int64
 	n2       int64
@@ -60,7 +60,7 @@ func TestSumInt64(t *testing.T) {
 	}
 }
 
-//float64
+//Type float64
 var sum_tests_float64 = []struct {
 	n1       float64
 	n2       float64
