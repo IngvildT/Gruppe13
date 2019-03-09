@@ -8,6 +8,7 @@ import (
 )
 
 // https://golang.org/doc/effective_go.html#init
+
 func init() {
 	seed := time.Now().Unix()
 	rand.Seed(seed)
