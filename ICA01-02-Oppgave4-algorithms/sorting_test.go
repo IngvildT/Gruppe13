@@ -44,7 +44,7 @@ func benchmarkBSort(i int, b *testing.B) {
 	}
 }
 
-//"Benchmark"- tester og ny testfunksjon for benchmarkBSortModified
+//Modifiserte "Benchmark"- tester og ny testfunksjon for benchmarkBSortModified
 func BenchmarkBSortModified100(b *testing.B) {
 	benchmarkBSort(100, b)
 }
