@@ -1,7 +1,5 @@
 package algorithms
 
-import "fmt"
-
 // Les https://en.wikipedia.org/wiki/Bubble_sort
 func Bubble_sort_modified(list []int) {
 	//Modifisert kode ved bruk av Golang´s Tuple Assignment
@@ -16,8 +14,6 @@ func Bubble_sort_modified(list []int) {
 			// Hvis det aktuelle elementet er større enn det neste
 			// elementet, skal disse swappes
 			if list[i-1] > list[i] {
-				// log that we are swapping values for posterity
-				fmt.Println("Swapping")
 				// swap elementene ved å bruke Go's Tuple Assignment
 				list[i], list[i-1] = list[i-1], list[i]
 				// Sett swapped til true - viktig!

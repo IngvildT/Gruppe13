@@ -18,7 +18,7 @@ func main() {
 		fmt.Println("Du har valgt å skrive med " + typeTall)
 
 		if regneType == "uint32" {
-			var typen int
+			var typen uint32
 			typen2 := 0
 			fmt.Println("Skriv inn det første tallet.")
 			fmt.Scan(&typen)
@@ -27,6 +27,8 @@ func main() {
 			fmt.Scan(&typen2)
 			tallet2 := uint32(typen2)
 			fmt.Println("\nSummen er: ", sum.SumUint32(tallet1, tallet2))
+		} else {
+			fmt.Println("Dette er dessverre ikke en gyldig verdi. Prøv igjen.")
 		}
 
 		if regneType == "float64" {
@@ -39,10 +41,12 @@ func main() {
 			fmt.Scan(&typen2)
 			tallet2 := float64(typen2)
 			fmt.Println("\nSummen er: ", sum.SumFloat64(tallet1, tallet2))
+		} else {
+			fmt.Println("Dette er dessverre ikke en gyldig verdi. Prøv igjen.")
 		}
 
 		if regneType == "int32" {
-			var typen int
+			var typen int32
 			typen2 := 0
 			fmt.Println("Skriv inn det første tallet.")
 			fmt.Scan(&typen)
@@ -51,10 +55,12 @@ func main() {
 			fmt.Scan(&typen2)
 			tallet2 := int32(typen2)
 			fmt.Println("\nSummen er: ", sum.SumInt32(tallet1, tallet2))
+		} else {
+			fmt.Println("Dette er dessverre ikke en gyldig verdi. Prøv igjen.")
 		}
 
 		if regneType == "int64" {
-			var typen int
+			var typen int64
 			typen2 := 0
 			fmt.Println("Skriv inn det første tallet.")
 			fmt.Scan(&typen)
@@ -64,22 +70,20 @@ func main() {
 			tallet2 := int64(typen2)
 			fmt.Println("\nSummen er: ", sum.SumInt64(tallet1, tallet2))
 		} else {
-			fmt.Println("Dette er dessverre ikke en gyldig type. Prøv igjen.")
+			fmt.Println("Dette er dessverre ikke en gyldig verdi. Prøv igjen.")
 		}
 
 		var avslutt string
+
 		fmt.Println("Avslutt ved å skrive quit eller fortsett ved å skrive continue. ")
 		fmt.Scan(&avslutt)
 
 		if avslutt == "quit" {
 			finish = true
-		}
 
-		if avslutt == "continue \n" {
-			finish = false
 		} else {
-			fmt.Println("Avslutt ved å skrive quit eller fortsett ved å skrive continue. ")
+			avslutt = "continue /n"
 		}
-	}
 
+	}
 }
