@@ -9,6 +9,7 @@ import (
 )
 
 //Ved å kjøre main via fileutils.go får vi en "byteslice" av de 2 txt filene som vi kan sammenligne.
+//I tillegg sjekker sjekkes hvilken byte for linjeskift som er brukt i de 2 tekst- filene.
 func main() {
 
 	fmt.Println()
