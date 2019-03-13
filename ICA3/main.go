@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	"./fileutils"
+	"./lineshift"
 )
 
 //Ved å kjøre main via fileutils.go får vi en "byteslice" av de 2 txt filene som vi kan sammenligne.
-
 func main() {
 
 	fmt.Println()
@@ -23,4 +24,8 @@ func main() {
 	fmt.Println(fileutils.FileToByteslice("text2.txt"))
 
 	fmt.Println()
+
+	fmt.Println("ICA3 - Oppgave 1b")
+	filename := os.Args[1]
+	lineshift.LineShift(filename)
 }
