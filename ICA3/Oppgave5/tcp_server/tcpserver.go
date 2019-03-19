@@ -1,5 +1,7 @@
 package main
 
+//Hentet fra Oppgaveteksten "ICA3"
+
 import "net"
 
 func handler(c net.Conn) {
