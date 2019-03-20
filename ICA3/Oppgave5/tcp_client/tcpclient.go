@@ -1,26 +1,23 @@
-package main
+package tcpclient
 
-//Eksempel kode for client hentet fra: https://systembash.com/a-simple-go-tcp-server-and-tcp-client/
+//https://golang.org/pkg/net/
 
-import "net"
-import "fmt"
-import "bufio"
-import "os"
+import (
+	"fmt"
+	"io/ioutil"
+	"net"
+)
 
-//Oppgave 5A
-func main() {
-
-	//Koble til socket
-	conn, _ := net.Dial("tcp", "127.0.0.1:5000")
-	for {
-		// Leser Input fra Stdin (Standard Inputs)
-		reader := bufio.NewReader(os.Stdin)
-		fmt.Print("Text to send: ")
-		text, _ := reader.ReadString('\n')
-		// Sender til socket
-		fmt.Fprintf(conn, text+"\n")
-		// Gir en respons fra server
-		message, _ := bufio.NewReader(conn).ReadString('\n')
-		fmt.Print("Message from server: " + message)
+/** OPPGAVE 5A
+TCPClient funksjonen sender forespørsel til server om tilkobling */
+func TCPClient() {
+	fmt.Println("Søker etter server")
+	conn, err := net.Dial("tcp", ":5002")
+	if err != nil {
+		panic(err)
 	}
+	defer conn.Close()
+
+	bs, _ := ioutil.ReadAll(conn)
+	fmt.Println(string(bs))
 }
