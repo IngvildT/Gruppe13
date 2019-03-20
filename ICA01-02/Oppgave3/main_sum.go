@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	sum "github.com/IngvildT/IS105-ICA01-02/Gruppe13-IS105/ICA01-02-Oppgave3-sum"
+	"github.com/IngvildT/IS105-Gruppe13-mappe/ICA01-02/ICA01-02-Oppgave3-sum/sum"
 )
 
 func main() {
@@ -11,8 +11,8 @@ func main() {
 	for finish == false {
 
 		var typeTall string
-		fmt.Println("Gyldige typer: uint32, float64, int32, int64. \n")
-		fmt.Println("Skriv inn hvilke type du ønsker å regne med.")
+		fmt.Println("Gyldige typer: uint32, int32, int64, float64.")
+		fmt.Println("Skriv inn hvilke type du ønsker å regne med")
 		fmt.Scan(&typeTall)
 		regneType := string(typeTall)
 		fmt.Println("Du har valgt å skrive med " + typeTall)
@@ -27,25 +27,7 @@ func main() {
 			fmt.Scan(&typen2)
 			tallet2 := uint32(typen2)
 			fmt.Println("\nSummen er: ", sum.SumUint32(tallet1, tallet2))
-		} else {
-			fmt.Println("Dette er dessverre ikke en gyldig verdi. Prøv igjen.")
-		}
-
-		if regneType == "float64" {
-			var typen float64
-			typen2 := 0
-			fmt.Println("Skriv inn det første tallet.")
-			fmt.Scan(&typen)
-			tallet1 := float64(typen)
-			fmt.Println("Skriv inn det andre tallet.")
-			fmt.Scan(&typen2)
-			tallet2 := float64(typen2)
-			fmt.Println("\nSummen er: ", sum.SumFloat64(tallet1, tallet2))
-		} else {
-			fmt.Println("Dette er dessverre ikke en gyldig verdi. Prøv igjen.")
-		}
-
-		if regneType == "int32" {
+		} else if regneType == "int32" {
 			var typen int32
 			typen2 := 0
 			fmt.Println("Skriv inn det første tallet.")
@@ -55,11 +37,7 @@ func main() {
 			fmt.Scan(&typen2)
 			tallet2 := int32(typen2)
 			fmt.Println("\nSummen er: ", sum.SumInt32(tallet1, tallet2))
-		} else {
-			fmt.Println("Dette er dessverre ikke en gyldig verdi. Prøv igjen.")
-		}
-
-		if regneType == "int64" {
+		} else if regneType == "int64" {
 			var typen int64
 			typen2 := 0
 			fmt.Println("Skriv inn det første tallet.")
@@ -69,20 +47,31 @@ func main() {
 			fmt.Scan(&typen2)
 			tallet2 := int64(typen2)
 			fmt.Println("\nSummen er: ", sum.SumInt64(tallet1, tallet2))
+		} else if regneType == "float64" {
+			var typen float64
+			typen2 := 0
+			fmt.Println("Skriv inn det første tallet.")
+			fmt.Scan(&typen)
+			tallet1 := float64(typen)
+			fmt.Println("Skriv inn det andre tallet.")
+			fmt.Scan(&typen2)
+			tallet2 := float64(typen2)
+			fmt.Println("\nSummen er: ", sum.SumFloat64(tallet1, tallet2))
+
 		} else {
 			fmt.Println("Dette er dessverre ikke en gyldig verdi. Prøv igjen.")
 		}
 
 		var avslutt string
 
-		fmt.Println("Avslutt ved å skrive quit eller fortsett ved å skrive continue. ")
+		fmt.Println("Avslutt ved å skrive quit. Fortsett med å skrive en random bokstav")
 		fmt.Scan(&avslutt)
 
 		if avslutt == "quit" {
 			finish = true
 
 		} else {
-			avslutt = "continue /n"
+			finish = false
 		}
 
 	}
