@@ -8,38 +8,18 @@ const Ascii = "\x00\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f"
 	`@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_` +
 	"`abcdefghijklmnopqrstuvwxyz{|}~\x7f"
 
-func IterateOverASCIIStringLiteral(a string) {
-	for i := 0; i < len(a); i++ {
-		fmt.Printf("%X %c %b \n", a[i], a[i], a[i])
+//Oppgave 1a
+func IterateOverASCIIStringLiteral(text string) {
+	for teller := 0; teller < len(text); teller++ {
+		fmt.Printf("%X %c %b \n", text[teller], text[teller], text[teller])
 	}
 }
 
-// Oppgave 1b
-// Implementer en funksjon som eksportere const ascii
+/** Oppgave 1c
+Funksjonen GreetingASCII() returnerer en variabel av typen string,
+som inneholder kun ASCII tegn (IKKE utvidet ASCII). */
 
-// Funksjon tar en "string literal" med kun ASCII tegn og lager en utskrift på
-// følgende format:
-// [ascii-kode heksadesimalt med store bokstaver A-F][mellomrom]
-// [symbol for ascii-kode][mellomrom][ascii-kode binært][linjeskift]
-//
-// Eksempel (utskriften kommer fra en main.go fil):
-//	…
-// 3E > 111110
-// 3F ? 111111
-// 40 @ 1000000
-// ...
-// Kode for Oppgave 1a
-
-// Unix-like operating systems are known to use it as erase control character, i.e. to delete the previous character in the line mode.
-
-// Funksjonen skal generere en utskrift fra en sekvens av bytes,
-// dvs. av typen []bytes (det betyr at du må finne den heksadesimale
-// eller binære representasjonen av alle tegn i strengen,
-// som skal skrives ut (inkludert anførselstegn eller
-// “double quotes” på engelsk).
-// Funksjonen GreetingASCII() returnerer en variabel av typen string,
-// som inneholder kun ASCII tegn (ikke utvidet ASCII).
-// Gjelder oppgave 1c
 func GreetingASCII() string {
-	return ""
+	a := []byte("\x22\x48\x65\x6C\x6C\x6F\x20\x3A\x2D\x29\x22")
+	return string(a)
 }
