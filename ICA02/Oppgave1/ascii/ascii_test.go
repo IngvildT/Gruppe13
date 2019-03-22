@@ -3,7 +3,7 @@ package ascii
 import "testing"
 import "fmt"
 
-/** Oppgave 1d
+/** Oppgave 1b
 Test for funksjonen ​greetingASCII() ​i egen fil ascii_test.go​,
 som tester om returverdier (av type ​string​) inneholderkun ASCII-tegn. */
 

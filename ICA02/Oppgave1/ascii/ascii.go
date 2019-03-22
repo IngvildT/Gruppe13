@@ -16,7 +16,7 @@ func IterateOverASCIIStringLiteral(text string) {
 }
 
 /** Oppgave 1c
-Funksjonen GreetingASCII() returnerer en variabel av typen string,
+Funksjonen GreetingASCII() returnerer en variabel av typen "string",
 som inneholder kun ASCII tegn (IKKE utvidet ASCII). */
 
 func GreetingASCII() string {
