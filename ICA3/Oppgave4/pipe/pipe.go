@@ -17,13 +17,15 @@ import (
 func Hex(c string) string {
 	fmt.Println("Funksjon 1 - representasjon med ASCII/UTF8 koding:")
 	//Verb %X (base 16) brukes for å konvertere s stringen til ASCII/UTF8 koding og printer konverteringen.
+	//Siden vi ønsker å holde på resultatet av denne funksjonen har det blitt brukt Sprintf som formatterer stringen 
+	//uten å printe til os.Stdout. 
 	return fmt.Sprintf("%X", c)
 }
 
 //Funksjon 2: Returnerer en hexadesimal funksjon basert på base64.
 func Base64(c string) string {
 	fmt.Println("Funksjon 2 - base64:")
-	//Konverterer s string fra base 16 (%X) til base 64 og printer konverteringen.
+	//Konverterer s string fra base 16 (%X) til base 64 via EncodeToString og returnerer konverteringen som en string.
 	return fmt.Sprintln(base64.StdEncoding.EncodeToString([]byte(c)))
 }
 
@@ -43,6 +45,6 @@ func Gzip(c string) string {
 	if err != nil {
 		log.Fatal(err)
 	}
-	//Returnerer innholdet i bufferen
+	//Returnerer innholdet i bufferen som en string. 
 	return fmt.Sprintln(buffer)
 }
