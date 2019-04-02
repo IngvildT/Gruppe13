@@ -1,66 +1,48 @@
+package pipe
+
 // https://www.socketloop.com/references/golang-io-pipe-function-example
-package main
+// https://blog.golang.org/strings
 
 import (
+	"bytes"
 	"compress/gzip"
 	"encoding/base64"
 	"fmt"
-	"io"
-	"io/ioutil"
-	"os"
+	"log"
 )
 
-func main() {
+////OPPGAVE 4C
 
-	// read and write with pipe
-	pReader, pWriter := io.Pipe()
+//Funksjon 1: Returnerer en hexadesimal funksjon basert på ASCII/UTF-8 koding.
+func Hex(c string) string {
+	fmt.Println("Funksjon 1 - representasjon med ASCII/UTF8 koding:")
+	//Verb %X (base 16) brukes for å konvertere s stringen til ASCII/UTF8 koding og printer konverteringen.
+	return fmt.Sprintf("%X", c)
+}
 
-	// use base64 encoder
-	b64Writer := base64.NewEncoder(base64.StdEncoding, pWriter)
+//Funksjon 2: Returnerer en hexadesimal funksjon basert på base64.
+func Base64(c string) string {
+	fmt.Println("Funksjon 2 - base64:")
+	//Konverterer s string fra base 16 (%X) til base 64 og printer konverteringen.
+	return fmt.Sprintln(base64.StdEncoding.EncodeToString([]byte(c)))
+}
 
-	gWriter := gzip.NewWriter(b64Writer)
-
-	// write text to be gzipped and push to pipe
-	go func() {
-		fmt.Println("Start writing")
-		n, err := gWriter.Write([]byte("These words will be compressed and pushed into pipe"))
-
-		fmt.Printf("len = %d\n", n)
-
-		if err != nil {
-			fmt.Println(err)
-			os.Exit(1)
-		}
-
-		gWriter.Close()
-		b64Writer.Close()
-		pWriter.Close()
-		fmt.Printf("Written %d bytes \n", n)
-	}()
-
-	// start reading from the pipe(reverse of the above process)
-
-	// use base64 decoder to wrap pipe Reader
-	b64Reader := base64.NewDecoder(base64.StdEncoding, pReader)
-
-	// read gzipped text and decompressed the text
-	gReader, err := gzip.NewReader(b64Reader)
-
+//Funksjon 3: Returnerer en hexadesimal funksjon basert på base64 komprimert ved bruk av gzip.
+func Gzip(c string) string {
+	fmt.Println("Funksjon 3 - base64 komprimert med gzip:")
+	//Åpner en buffer og Writer som komprimerer s string base 64 til gzip og printer tilslutt konverteringen.
+	var buffer bytes.Buffer
+	gZipWriter := gzip.NewWriter(&buffer)
+	//Skriver s tring inni bufferen, dersom problemer gis en feilmelding.
+	_, err := gZipWriter.Write([]byte(c))
 	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		log.Fatal(err)
 	}
-
-	// Look at the final output at the other side of the pipe
-
-	// print out the text
-	text, err := ioutil.ReadAll(gReader)
-
+	//Lukker skriveren
+	err = gZipWriter.Close()
 	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		log.Fatal(err)
 	}
-
-	fmt.Printf("%s\n", text)
-
+	//Returnerer innholdet i bufferen
+	return fmt.Sprintln(buffer)
 }
