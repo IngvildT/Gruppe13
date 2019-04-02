@@ -9,11 +9,14 @@ import (
 func main() {
 
 	hex := pipe.Hex("Ulan Bator er hovedstaden i Mongolia")
+	//Printer funksjonen Hex og tar inn stringen c som parameter
 	fmt.Println(hex, "\n")
 
 	b64 := pipe.Base64(hex)
+	//Printer funksjonen Base64 og tar resultatet av hex funksjonen som paramter.
 	fmt.Println(b64, "\n")
 
 	gzip := pipe.Gzip(b64)
+	//Printer funksjonen Gzip og tar resultatet av base64 funksjonen som paramter.
 	fmt.Println(gzip)
 }
