@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-	hex := pipe.Hex("Ulan Bator er hovedstaden i Mongolia")
+	hex := pipe.Hex("Ulan Bator er hovedstaden i Mongolia.")
 	//Printer funksjonen Hex og tar inn stringen c som parameter
 	fmt.Println(hex, "\n")
 
