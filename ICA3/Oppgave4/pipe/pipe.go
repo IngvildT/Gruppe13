@@ -3,6 +3,7 @@ package pipe
 // https://www.socketloop.com/references/golang-io-pipe-function-example
 // https://blog.golang.org/strings
 // https://golang.org/pkg/encoding/base64/#example_Encoding_EncodeToString
+// https://medium.com/go-walkthrough/go-walkthrough-fmt-55a14bbbfc53
 
 import (
 	"bytes"
@@ -17,10 +18,10 @@ import (
 //Funksjon 1: Returnerer en hexadesimal funksjon basert på ASCII/UTF-8 koding.
 func Hex(c string) string {
 	fmt.Println("Funksjon 1 - representasjon med ASCII/UTF8 koding:")
-	/**Siden hexadecimal systemet består av 16 symboler(base16) brukes Verb %X (base 16) for å konvertere 
+	/** Siden hexadecimal systemet består av 16 symboler(base16) brukes Verb %X (base 16) for å konvertere 
 	s stringen til ASCII/UTF8 koding og printer konverteringen. Siden vi ønsker å holde på resultatet 
 	av denne funksjonen brukes Sprintf for å formattere stringen uten å printe til os.Stdout. */
-	
+
 	return fmt.Sprintf("%X", c)
 }
 
