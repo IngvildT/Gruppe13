@@ -30,7 +30,7 @@ func main() {
 	hexSlice := hexString[:20]
 
 	fmt.Println("Antall bytes totalt: " + hexTotalt + "\n" +
-		"Innhold 20 første bytes: " + hexSlice + "\n")
+		"Innhold 10 første bytes: " + hexSlice + "\n")
 
 	// Henter base64 funksjonen fra pipe, teller antall bytes totalt og printer de 20 første.
 	base64String := pipe.Base64(fil)
@@ -38,7 +38,7 @@ func main() {
 	base64Slice := base64String[:20]
 
 	fmt.Println("Antall bytes totalt: " + base64Totalt + "\n" +
-		"Innhold 20 første bytes: " + base64Slice + "\n")
+		"Innhold 10 første bytes: " + base64Slice + "\n")
 
 	// Henter Gzip funksjonen fra pipe, teller antall bytes totalt og printer de 20 første.
 	gzipString := pipe.Gzip(fil)
@@ -46,6 +46,6 @@ func main() {
 	gzipSlice := gzipString[:20]
 
 	fmt.Println("Antall bytes totalt: " + gzipTotalt + "\n" +
-		"Innhold 20 første bytes: " + gzipSlice + "\n")
+		"Innhold 10 første bytes: " + gzipSlice + "\n")
 
 }
