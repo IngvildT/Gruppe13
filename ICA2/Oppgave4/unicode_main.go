@@ -6,10 +6,10 @@ import (
 )
 
 func main()  {
-	is := unicode.Translate("nord og sør", "is")
-	jp := unicode.Translate("nord og sør", "jp")
-		fmt.Println(is)
-		fmt.Println(jp)
+	Is := unicode.Translate("nord og sør", "Is")
+	Jp := unicode.Translate("nord og sør", "Jp")
+		fmt.Println(Is)
+		fmt.Println(Jp)
 
 	unicode.UnicodeCodePointDemo()	
 }
