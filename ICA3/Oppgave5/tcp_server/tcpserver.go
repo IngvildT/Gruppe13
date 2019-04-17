@@ -19,9 +19,9 @@ func handler(c net.Conn) {
 }
 
 /** TCPServer starter serveren og søker ("listens") etter klienter. "Handler" funksjonen er en go-routine
-som kalles for hver tilkobling som blir akseptert */
+som kalles for hver tilkobling som blir akseptert. */
 func TCPServer() {
-	l, err := net.Listen("tcp", ":5002")
+	l, err := net.Listen("tcp", ":5003")
 	if err != nil {
 		panic(err)
 	}

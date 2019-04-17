@@ -9,10 +9,10 @@ import (
 )
 
 /** OPPGAVE 5A
-TCPClient funksjonen sender forespørsel til server om tilkobling */
+TCPClient funksjonen sender forespørsel til server om tilkobling. */
 func TCPClient() {
 	fmt.Println("Søker etter server")
-	conn, err := net.Dial("tcp", ":5002")
+	conn, err := net.Dial("tcp", ":5003")
 	if err != nil {
 		panic(err)
 	}
