@@ -7,6 +7,9 @@ import (
 )
 
 func main() {
+	//Kjører funksjonen IterateOverExtendedASCIIStringLiteral
 	iso.IterateOverExtendedASCIIStringLiteral(iso.AsciiExtended)
-	fmt.Printf(iso.GreetingExtendedASCII())
+	//Printer funksjonene GreetingExtendedASCII 1 og 2
+	fmt.Printf(iso.GreetingExtendedASCII1())
+	fmt.Printf(iso.GreetingExtendedASCII2())
 }

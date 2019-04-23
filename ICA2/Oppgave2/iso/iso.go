@@ -9,32 +9,43 @@ const AsciiExtended = "\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\
 	"\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2" +
 	"\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd5\xd6\xd7\xd8" +
 	"\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef" +
-	"\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff" +
-	` !"#$%&'()*+,-./0123456789:;<=>?` +
-	`@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_` +
-	"`abcdefghijklmnopqrstuvwxyz{|}~\x7f"
+	"\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff" 
 
 //OPPGAVE 2A
-// IterateOverASCIIStringLiteral tar en "string literal" som INN-data
-func IterateOverExtendedASCIIStringLiteral(text string) {
-	for teller := 0; teller < len(text); teller++ {
-		fmt.Printf("%X %c %b \n", text[teller], text[teller], text[teller])
+// IterateOverASCIIStringLiteral itererer over tegnene i det utvidede ASCII settet: 
+func IterateOverExtendedASCIIStringLiteral(extended string) {
+	for e := 0; e < len(extended); e++ {
+		fmt.Printf("%X %c %b \n", extended[e], extended[e], extended[e])
 	}
 }
 
-func GetExtendedASCIIStringLiteral() string {
-	return AsciiExtended
-}
+//OPPGAVE 2C - GreetingExtendedASCII1 "Salut, ça va °-) Ça coute ​€50​" 
+const GreetingString1 = "\x22\x53\x61\x6c\x75\x74\x2c\x20\xC3\xA7\x61\x20\x76" +
+"\x61\x20\xC2\xB0\x2D\x29\x20\xE2\x80\x8B\xE2\x82\xAC\x35\x30\xE2\x80\x8B\x22\x0A"
 
-//OPPGAVE 2C
-// GreetingExtendedASCII returnerer en tekst-streng i ExtendedAscii
-func GreetingExtendedASCII() string {
-	s1 := []byte("\x22\x53\x61\x6c\x75\x74\x2c\x20\xe7\x61\x20\x76\x61\x20\xb0\x2b" +
-		"\x29\x20\x80\x35\x30\x22")
-	for i := 0; i < len(s1); i++ {
-		fmt.Printf("%c ", s1[i])
+func GreetingExtendedASCII1() string {
+	greetingByte := []byte ("Salut, ça va °-) Ça coute ​€50​")
+	//Itererer gjennom alle tegn i setningen "Salut, ça va °-) Ça coute ​€50​" og printer ut den
+	//hexadesimale(%X), symbol for utvidet ASCII (%c) og den binære representasjonen (%b) for tegnene. 
+	for e := 0; e < len(greetingByte); e++ {
+		fmt.Printf("%X %c %b \n", greetingByte[e], greetingByte[e], greetingByte[e])
 	}
-	s2 := "\x22\x53\x61\x6c\x75\x74\x2c\x20\xe7\x61\x20\x76\x61\x20\xb0\x2b" +
-		"\x29\x20\x80\x35\x30\x22"
-	return s2
-}
+	//Printer ut den hexadesimale representasjonen som en lesbar string. 
+	return GreetingString1
+} 
+
+//OPPGAVE 2C - GreetingExtendedASCII2 ""Salut, ça va °-) Κοστίζει​ €50​"" 
+const GreetingString2 = "\x22\x53\x61\x6C\x75\x74\x2C\x20\xC3\xA7\x61\x20\x76\x61\x20\xC2\xB0\x2D\x29\x20" +
+"\xCE\x9A\xCE\xBF\xCF\x83\xCF\x84\xCE\xAF\xCE\xB6\xCE\xB5\xCE\xB9\xE2\x80\x8B\x20\xE2\x82\xAC\x35\x30\xE2\x80\x8B\x22\x20\x0A"
+
+func GreetingExtendedASCII2() string {
+	greetingByte := []byte ("Salut, ça va °-) Κοστίζει​ €50​")
+	//Itererer gjennom alle tegn i setningen "Salut, ça va °-) Ça coute ​€50​" og printer ut den
+	//hexadesimale(%X), symbol for utvidet ASCII (%c) og den binære representasjonen (%b) for tegnene. 
+	for e := 0; e < len(greetingByte); e++ {
+		fmt.Printf("%X %c %b \n", greetingByte[e], greetingByte[e], greetingByte[e])
+	}
+	//Printer ut den hexadesimale representasjonen som en lesbar string. 
+	return GreetingString2
+} 
+
