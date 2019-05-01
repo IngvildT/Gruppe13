@@ -50,7 +50,13 @@ func main() {
 	}
 
 	result := speechToText.GetRecognizeResult(response)
+	/** MarshalIndent formatterer JSON slik at hvert element starter på en ny linje. 
+	b, _ := json.MarshalIndent(result, "", "  ")
+	fmt.Println(string(b)) */
 
+
+	/**Ved å formattere JSON via Marshal og Unmarshal kan vi printe et output
+	som kun viser selve transkripsjonen: */
 	m, _ := json.Marshal(result)
 
 	var text SpeechtoText
