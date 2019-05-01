@@ -10,10 +10,22 @@ import (
 	"github.com/watson-developer-cloud/go-sdk/speechtotextv1"
 )
 
+type SpeechtoText struct {
+	Transcript string `json:"transcript"`
+	Results    []struct {
+		Final        bool `json:"final"`
+		Alternatives []struct {
+			Transcript string  `json:"transcript"`
+			Confidence float64 `json:"confidence"`
+		} `json:"alternatives"`
+	} `json:"results"`
+	ResultIndex int `json:"result_index"`
+}
+
 func main() {
 	speechToText, speechToTextErr := speechtotextv1.NewSpeechToTextV1(&speechtotextv1.SpeechToTextV1Options{
-		IAMApiKey: "personal key",
-		URL:       "personal url",
+		IAMApiKey: "tHAIyaaB5VqOFBRZE8asIEF37i5nTtUkon9a1T3x8Rc4",
+		URL:       "https://gateway-lon.watsonplatform.net/speech-to-text/api",
 	})
 	if speechToTextErr != nil {
 		panic(speechToTextErr)
@@ -36,9 +48,18 @@ func main() {
 	if responseErr != nil {
 		panic(responseErr)
 	}
-	result := speechToText.GetRecognizeResult(response)
-	b, _ := json.MarshalIndent(result, "", "  ")
 
-	fmt.Println(string(b))
+	result := speechToText.GetRecognizeResult(response)
+
+	m, _ := json.Marshal(result)
+
+	var text SpeechtoText
+	err := json.Unmarshal(m, &text)
+
+	if err != nil {
+		fmt.Println("error:", err)
+	}
+	//Printer kun selve transkriptet i JSON strukturen
+	fmt.Printf("%+v\n", text.Results[0].Alternatives[0].Transcript)
 
 }
