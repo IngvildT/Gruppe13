@@ -3,7 +3,7 @@ package lineshift
 import (
 	"fmt"
 	"strings"
-	"github.com/IngvildT/IS105-Gruppe13-mappe/ICA-1-3-Repository/ICA3/Oppgave1/fileutils"
+	"github.com/IngvildT/IS105-Gruppe13-mappe/ICA-REPO/ICA3/Oppgave1/fileutils"
 )
 //Boolean funksjonen LineShift sjekker om filen inneholder CR "\r" og LF "\n".
 
