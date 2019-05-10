@@ -15,14 +15,14 @@ import (
 
 ////OPPGAVE 4C
 
-//Funksjon 1: Returnerer en hexadesimal funksjon basert på ASCII/UTF-8 koding.
+//Funksjon 1: Returnerer en hexadesimal representasjon basert på ASCII/UTF-8 koding.
 func Hex(c string) string {
-	fmt.Println("Funksjon 1 - representasjon med ASCII/UTF8 koding:")
+	fmt.Println("Funksjon 1 - Hexadesimal:")
 	/** Siden hexadecimal systemet består av 16 symboler(base16) brukes Verb %X (base 16) for å konvertere 
 	s stringen til ASCII/UTF8 koding og printer konverteringen. Siden vi ønsker å holde på resultatet 
 	av denne funksjonen brukes Sprintf for å formattere stringen uten å printe til os.Stdout. */
 
-	return fmt.Sprintf("%X", c)
+	return fmt.Sprintf("% X", c)
 }
 
 //Funksjon 2: Returnerer en hexadesimal funksjon basert på base64.
@@ -49,5 +49,7 @@ func Gzip(c string) string {
 		log.Fatal(err)
 	}
 	//Returnerer innholdet i bufferen som en string. 
-	return fmt.Sprintln(buffer)
+	return fmt.Sprintln(buffer, "% X")
 }
+
+

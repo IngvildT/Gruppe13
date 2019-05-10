@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/IngvildT/IS105-Gruppe13-mappe/ICA-1-3-Repository/ICA3/Oppgave4/pipe"
+	"github.com/IngvildT/IS105-Gruppe13-mappe/ICA-REPO/ICA3/Oppgave4/pipe"
 )
 
 //OPPGAVE 4C compression
@@ -22,30 +22,36 @@ func main() {
 
 	fil := string(file)
 	filTotalt := fmt.Sprintf("%d", len(fil))
+	fmt.Println("Første ord original tekst: ", fil[:20])
 	fmt.Println("Antall bytes i fil opprinnelig: " + filTotalt + "\n")
 
-	// Henter Hex funksjonen fra pipe, teller antall bytes totalt og printer de 20 første.
+	// Henter Hex funksjonen fra pipe, teller antall bytes totalt og printer de 10 første.
 	hexString := pipe.Hex(fil)
 	hexTotalt := fmt.Sprintf("%d", len(hexString))
+	//I hexadesimal representasjon er 1 karakter 4 bits, derav 12 bytes er 24 karakterer hex
 	hexSlice := hexString[:20]
 
 	fmt.Println("Antall bytes totalt: " + hexTotalt + "\n" +
-		"Innhold 10 første bytes: " + hexSlice + "\n")
+		"20 første bytes Hexadesimal: " + hexSlice + "\n")
 
-	// Henter base64 funksjonen fra pipe, teller antall bytes totalt og printer de 20 første.
+	// Henter base64 funksjonen fra pipe, teller antall bytes totalt og printer de 10 første.
 	base64String := pipe.Base64(fil)
 	base64Totalt := fmt.Sprintf("%d", len(base64String))
+	//I base64 format er 1 karakter 6 bits, dvs for å få 12 bytes trengs det 16 karakterer base64
 	base64Slice := base64String[:20]
+	base64Hex := fmt.Sprintf("% X", base64String[:20])
 
 	fmt.Println("Antall bytes totalt: " + base64Totalt + "\n" +
-		"Innhold 10 første bytes: " + base64Slice + "\n")
+		"20 første bytes av Hex i base64 format: " + base64Slice + "\n" + "Base64 konvertert til Hex: " + base64Hex + "\n")
 
-	// Henter Gzip funksjonen fra pipe, teller antall bytes totalt og printer de 20 første.
+	// Henter Gzip funksjonen fra pipe, teller antall bytes totalt og printer de 10 første.
 	gzipString := pipe.Gzip(fil)
 	gzipTotalt := fmt.Sprintf("%d", len(gzipString))
-	gzipSlice := gzipString[:20]
+	gzipSlice := fmt.Sprintf("%s", gzipString[:20])
+	//Konvertering til Hexadesimal etter komprimering
+	gzipHex := fmt.Sprintf("% X", gzipString[:20])
 
 	fmt.Println("Antall bytes totalt: " + gzipTotalt + "\n" +
-		"Innhold 10 første bytes: " + gzipSlice + "\n")
+		"20 første bytes av base64 i Gzip format: " + gzipSlice + "\n" + "Gzip konvertert til Hex: " + gzipHex + "\n")
 
 }
