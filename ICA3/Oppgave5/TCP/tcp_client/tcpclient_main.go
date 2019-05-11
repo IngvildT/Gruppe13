@@ -8,6 +8,6 @@ import (
 JSON strukturen til klienten via tcp_server.go */
 func main() {
 	tcpclient.TCPClient()
-	//tcpclient.TCPClient2()
+	tcpclient.TCPClient2()
 
 }
