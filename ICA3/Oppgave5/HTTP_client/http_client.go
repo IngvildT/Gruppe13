@@ -15,7 +15,7 @@ og 2: Hvis det skjer en feil i tilkoblingen til serveren og å få en respons ti
 hvis err ikke er lik nil vil det komme en feilmelding  */
 
 func main() {
-	resp, err := http.Get("http://localhost:8989/ok")
+	resp, err := http.Get("http://localhost:5000/ok")
 	if err != nil {
 		log.Fatal(err)
 	}

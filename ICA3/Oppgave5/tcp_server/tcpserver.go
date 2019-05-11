@@ -4,9 +4,8 @@ package tcpserver
 //https://uia.instructure.com/courses/3171/assignments/12048?module_item_id=85316
 
 import (
+	json "Gruppe13/ICA3/Oppgave5/json"
 	"net"
-
-	"github.com/IngvildT/IS105-Gruppe13-mappe/ICA-1-3-Repository/ICA3/Oppgave5/json"
 )
 
 /** OPPGAVE 5 A og B.

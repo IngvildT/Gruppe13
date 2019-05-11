@@ -1,4 +1,5 @@
 package json
+
 //OPPGAVE 5B
 //https://golang.org/pkg/encoding/json/#example_Marshal
 
@@ -13,13 +14,13 @@ type NameEmail struct {
 	Email     string
 }
 
-/** Feltene (structen) defineres deretter i "func JSON" hvor den blir gjort om til JSON struktur 
+/** Feltene (structen) defineres deretter i "func JSON" hvor den blir gjort om til JSON struktur
 og strukturen blir deretter returnert til klienten via "var b"*/
 func JSON() []byte {
 	nameEmail := NameEmail{
-		FirstName: "Ingvild",
-		LastName:  "Tisland",
-		Email:     "ingvild.tisland@gmail.com",
+		FirstName: "Julie",
+		LastName:  "Kjellevold",
+		Email:     "jkjellevold98@gmail.com",
 	}
 
 	var b []byte
