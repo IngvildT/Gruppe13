@@ -9,7 +9,7 @@ import (
 
 func main() {
 	var filnavn string
-	flag.StringVar(&filnavn, "f", "", "filename")
+	flag.StringVar(&filnavn, "f", "", "Filename")
 	flag.Parse()
 
 	fileInfo(filnavn)
@@ -53,10 +53,9 @@ func fileInfo(filnavn string) {
 		fmt.Println("Is not append only")
 	}
 
-	// Is/is not a device file
+	// Is/is not a device file (+ Is/is not Unix character device and Unix block device)
 	if fileInfo.Mode()&os.ModeDevice != 0 {
 		fmt.Println("Is a device file")
-
 		if fileInfo.Mode()&os.ModeCharDevice != 0 {
 			fmt.Println("Is a Unix character device")
 			fmt.Println("Is not a Unix block device")
@@ -66,7 +65,15 @@ func fileInfo(filnavn string) {
 		}
 	} else {
 		fmt.Println("Is not a device file")
-		fmt.Print("Is not a Unix character device")
+		fmt.Println("Is not a Unix character device")
 		fmt.Println("Is not a Unix block device")
 	}
+
+	// Is/is not a symbolic link
+	if fileInfo.Mode()&os.ModeSymlink != 0 {
+		fmt.Println("Is a symbolic link")
+	} else {
+		fmt.Println("Is not a symbolic link")
+	}
+
 }
