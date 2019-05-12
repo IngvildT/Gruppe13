@@ -8,7 +8,8 @@ func AllocateMake(b int) []byte {
 }
 func AllocateVar(b int) []byte {
 
-	// variabel s (slice) bruker både var og make til å lage en slice med argument b
+	// s er en variabel (slice). Bruker både var og make til å lage en slice med argument b
+	// og med typen byte
 	var s []byte = make([]byte, b)
 
 	// Returnerer en slice av typen byte
