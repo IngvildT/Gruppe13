@@ -1,13 +1,17 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"os"
 )
 
 func main() {
-	filnavn := os.Args[1]
+	var filnavn string
+	flag.StringVar(&filnavn, "f", "", "filename")
+	flag.Parse()
+
 	fileInfo(filnavn)
 }
 
@@ -42,19 +46,27 @@ func fileInfo(filnavn string) {
 	// Has Unix permission bits: -rwxrwxrwx
 	fmt.Println("Has Unix permission bits:", fileInfo.Mode().Perm())
 
-	// Is/Is not append only (virker ikke)
-	//if fileInfo.Mode().ModeAppend() == true {
-	//	fmt.Println("Is append only")
-	//} else {
-	//	fmt.Println("Is not append only")
-	//}
+	// Is/Is not append only
+	if fileInfo.Mode()&os.ModeAppend != 0 {
+		fmt.Println("Is append only")
+	} else {
+		fmt.Println("Is not append only")
+	}
 
 	// Is/is not a device file
+	if fileInfo.Mode()&os.ModeDevice != 0 {
+		fmt.Println("Is a device file")
 
-	// Is/is not a unix character device
-
-	//Is/is not a unix block device
-
-	// Is/is not a symbolic link
-
+		if fileInfo.Mode()&os.ModeCharDevice != 0 {
+			fmt.Println("Is a Unix character device")
+			fmt.Println("Is not a Unix block device")
+		} else {
+			fmt.Println("Is not a Unix character device")
+			fmt.Println("Is a Unix block device")
+		}
+	} else {
+		fmt.Println("Is not a device file")
+		fmt.Print("Is not a Unix character device")
+		fmt.Println("Is not a Unix block device")
+	}
 }
