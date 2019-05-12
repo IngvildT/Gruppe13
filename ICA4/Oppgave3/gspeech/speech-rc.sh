@@ -22,6 +22,7 @@ EOF
 DURATION=3
 LANGUAGE=en_US
 # Please replace this with your own key
+# Vi brukte egen key når vi kjørte programmet. Under er key'en som er brukt i amsehilis 
 KEY=AIzaSyAcalCzUvPmmJ7CZBFOEWx2Z1ZSn4Vs1gg
 
 
@@ -110,10 +111,12 @@ else
       echo ""
 fi
  
-RESULT=`wget -q --post-file $INFILE --header="Content-Type: audio/x-flac; rate=$SRATE" -O - "https://www.google.com/speech-api/v2/recognize?client=chromium&lang=$LANGUAGE&key=$KEY"`
- 
+RESULT=`wget -q --post-file $INFILE --header="Content-Type: audio/x-flac; rate=$SRATE" -O - "https://www.google.com/speech-api/v2/recognize?client=chromium&lang=$LANGUAGE&key=$KEY&pfilter=2&output=json"`
+
+
 FILTERED=`echo "$RESULT" | grep "transcript.*}" | sed 's/,/\n/g;s/[{,},"]//g;s/\[//g;s/\]//g;s/:/: /g' | grep -o -i -e "transcript.*" -e "confidence:.*"`
- 
+
+
 if [[ ! "$FILTERED" ]]
   then
      >&2 echo "Google was unable to recognize any speech in audio data"
