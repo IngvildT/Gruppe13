@@ -64,10 +64,10 @@ func main() {
 
 		var avslutt string
 
-		fmt.Println("Avslutt ved å skrive quit. Fortsett med å skrive en random bokstav")
+		fmt.Println("Avslutt ved å skrive avslutt. Fortsett med å skrive en random bokstav")
 		fmt.Scan(&avslutt)
 
-		if avslutt == "quit" {
+		if avslutt == "avslutt" {
 			finish = true
 
 		} else {

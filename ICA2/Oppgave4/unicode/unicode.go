@@ -6,14 +6,14 @@ import (
 
 //OPPGAVE 4A
 func Translate(expression string, language string) string {
-	unicodeJp := "\x22\x6E\x6f\x72\xC3\xB0\x75\x72\x20\x6F\x67\x20\x73\x75\xC3\xB0\x75\x72\x22"
-	unicodeIs := "\x22\xE5\x8C\x97\xE3\x81\xA8\xE5\x8D\x97\x22"
+	unicodeIs := "\x22\x6E\x6f\x72\xC3\xB0\x75\x72\x20\x6F\x67\x20\x73\x75\xC3\xB0\x75\x72\x22"
+	unicodeJp := "\x22\xE5\x8C\x97\xE3\x81\xA8\xE5\x8D\x97\x22"
 	returnOutput := expression
 	if expression == "nord og sør" {
 		if language == "Is" {
-			return "\x22" + expression + "\x22" + " på islandsk er: " + unicodeJp
+			return "\x22" + expression + "\x22" + " på islandsk er: " + unicodeIs
 		} else if language == "Jp" {
-			return "\x22" + expression + "\x22" + " på japansk er: " + unicodeIs
+			return "\x22" + expression + "\x22" + " på japansk er: " + unicodeJp
 		}
 	}
 	returnOutput = fmt.Sprintf("%s", returnOutput)
