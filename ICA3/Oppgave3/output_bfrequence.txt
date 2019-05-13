@@ -1,0 +1,9 @@
+Ingvilds:Oppgave3 ingvildtisland$ go run frequence_main.go
+Antall linjer i filen er: 124787
+
+Her er en oversikt over de mest vanlige runene.
+1. Rune:    Antall:  120756
+2. Rune:  e Antall:  39108
+3. Rune:  t Antall:  28063
+4. Rune:  o Antall:  26072
+5. Rune:  a Antall:  22495
